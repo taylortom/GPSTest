@@ -1,12 +1,16 @@
 $(document).ready(function() {
-
-	$("#output").html('Hello world.');
 	
+	console.log('document.ready');
+
 	// vars
+	var $output = $("#output");
 	var watchID;
-	var options = {};
 	var positions = [];
-	var maxPositions = 10;
+	var options = { 
+		enableHighAccuracy: true, 
+		maximumAge        : 30000, 
+		timeout           : 27000
+	};
 	
 	if ("geolocation" in navigator) _initGPS();
 	else console.log('geolocation not supported....');
@@ -25,11 +29,11 @@ $(document).ready(function() {
 		
 		console.log('onLocationSuccess: ' + position.coords + " [" + position.timestamp + "]");
 		
-		if(positions.length < maxPositions) 
-		{
-			positions.push(position);
-		}
-		else navigator.geolocation.clearWatch(watchID);
+		$output.append("<li>long: " + position.coords.longitude + "lat: " + position.coords.latitude + "</li>")
+		positions.push(position);
+		
+		// need to call this to end it all...........
+		// navigator.geolocation.clearWatch(watchID);
 	}
 	
 	function onLocationError(error){
