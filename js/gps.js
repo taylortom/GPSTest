@@ -8,8 +8,8 @@ $(document).ready(function() {
 	var positions = [];
 	var options = { 
 		enableHighAccuracy: true, 
-		maximumAge        : 30000, 
-		timeout           : 27000
+		maximumAge        : 10000, 
+		timeout           : 10000
 	};
 	
 	if ("geolocation" in navigator) _initGPS();
