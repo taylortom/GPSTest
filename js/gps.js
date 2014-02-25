@@ -27,9 +27,10 @@ $(document).ready(function() {
 	
 	function onLocationSuccess(position){
 		
-		console.log('onLocationSuccess: ' + position.coords + " [" + position.timestamp + "]");
+		var time = new Date(position.timestamp);
+		console.log("onLocationSuccess: at " + time.toTimeString());
 		
-		$output.append("<li>long: " + position.coords.longitude + "lat: " + position.coords.latitude + "</li>")
+		$output.append("<li>long: " + position.coords.longitude + "lat: " + position.coords.latitude + " at " + time.toTimeString() + "</li>")
 		positions.push(position);
 		
 		// need to call this to end it all...........
