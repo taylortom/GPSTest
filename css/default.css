@@ -1,5 +1,22 @@
-body{
+body
+{
 	font-family: monospace;
 	color: #CCC;
 	background-color: #000;
+}
+
+.button {
+     
+    /*Step 2: Basic Button Styles*/
+    display: inline-block;
+    height: 50px;
+    width: 200px;
+    background: #666;
+    text-align: center;
+    font-size: 125%;
+}
+ 
+/*Step 3: Link Styling*/
+a.button {
+    text-decoration: none;
 }
